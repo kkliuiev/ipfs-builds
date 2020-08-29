@@ -17,19 +17,13 @@ import { Routes } from 'utils/constants';
 import useLanguage from 'hooks/useLanguage';
 import { getColor, marketingTheme } from 'styles/theme';
 
-import { ReactComponent as TradeIcon } from 'images/landing/trade-icon.svg';
 import { ReactComponent as BorrowIcon } from 'images/landing/borrow-icon.svg';
 import { ReactComponent as SaveIcon } from 'images/landing/save-icon.svg';
 import { Box, Grid, Text } from '@makerdao/ui-components-core';
 import { ReactComponent as BatIcon } from '../images/oasis-tokens/bat.svg';
-import { ReactComponent as ZrxIcon } from '../images/oasis-tokens/zrx.svg';
 import { ReactComponent as EthIcon } from '../images/oasis-tokens/eth.svg';
 import { ReactComponent as DaiIcon } from '../images/oasis-tokens/dai.svg';
-import { ReactComponent as RepIcon } from '../images/oasis-tokens/rep.svg';
 import { ReactComponent as UsdcIcon } from '../images/oasis-tokens/usdc.svg';
-import { ReactComponent as LinkIcon } from '../images/oasis-tokens/link.svg';
-import { ReactComponent as PaxIcon } from '../images/oasis-tokens/pax.svg';
-import { ReactComponent as TusdIcon } from '../images/oasis-tokens/tusd.svg';
 import { ReactComponent as WbtcIcon } from '../images/oasis-tokens/wbtc.svg';
 
 const Content = ({ children }) => (
@@ -45,6 +39,7 @@ const Cards = (() => {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 65%;
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 48px;
@@ -55,7 +50,7 @@ const Cards = (() => {
       position: absolute;
       z-index: -1;
       bottom: 0;
-      width: 93%;
+      width: 100%;
       left: 3.5%;
       height: 91%;
       background: linear-gradient(
@@ -130,32 +125,6 @@ const Cards = (() => {
 
     return (
       <CardsContainer {...props}>
-        <Card
-          style={{
-            background:
-              'radial-gradient(111.67% 100% at 0% 0%, #F2FFE6 0%, #C6FFF9 100%)'
-          }}
-        >
-          <TradeIcon />
-          <h1 className="title">{lang.landing_page.trade_card.title}</h1>
-          <Text className="description">
-            {lang.landing_page.trade_card.description}
-          </Text>
-          <div className="buttonContainer">
-            <Link
-              href={`/${Routes.TRADE}`}
-              onClick={() => {
-                mixpanel.track('btn-click', {
-                  id: 'StartTrading',
-                  product: 'oasis-landing'
-                });
-              }}
-              className="button-link"
-            >
-              <FilledButton>{lang.landing_page.trade_card.button}</FilledButton>
-            </Link>
-          </div>
-        </Card>
         <Card
           style={{
             background:
@@ -240,31 +209,6 @@ const SupportedTokens = (() => {
       name: 'WBTC',
       icon: WbtcIcon,
       onlyOnTrade: false
-    },
-    {
-      name: 'Augur',
-      icon: RepIcon,
-      onlyOnTrade: true
-    },
-    {
-      name: '0x',
-      icon: ZrxIcon,
-      onlyOnTrade: true
-    },
-    {
-      name: 'LINK',
-      icon: LinkIcon,
-      onlyOnTrade: true
-    },
-    {
-      name: 'PAX',
-      icon: PaxIcon,
-      onlyOnTrade: true
-    },
-    {
-      name: 'TUSD',
-      icon: TusdIcon,
-      onlyOnTrade: true
     }
   ];
 
@@ -350,21 +294,6 @@ const SupportedTokens = (() => {
             <Token config={config} key={config.name} />
           ))}
         </TokenList>
-        <span
-          style={{
-            fontSize: '18px',
-            letterSpacing: '0.5px',
-            color: '#4F445E',
-            position: 'relative'
-          }}
-        >
-          <span
-            style={{ fontSize: '2.6rem', position: 'relative', top: '5px' }}
-          >
-            *
-          </span>{' '}
-          {lang.landing_page.token_section_only_on_trade}
-        </span>
       </Box>
     );
   };

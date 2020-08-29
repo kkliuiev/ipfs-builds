@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider, css } from 'styled-components';
-import { Helmet } from 'react-helmet';
 import { Link } from 'react-navi';
 import { Routes } from 'utils/constants';
 import useLanguage from 'hooks/useLanguage';
@@ -61,13 +60,6 @@ const MainNav = ({ onLinkClicked, ...props }) => {
 
   return (
     <MainNavStyle {...props}>
-      <Link
-        href={`/${Routes.TRADE}`}
-        activeStyle={{ fontWeight: 'bold' }}
-        onClick={() => onLinkClicked && onLinkClicked()}
-      >
-        {lang.navbar.trade}
-      </Link>
       <Link
         href={`/${Routes.BORROW}`}
         activeStyle={{ fontWeight: 'bold' }}
