@@ -6,27 +6,17 @@ import { Flex, Grid, Box } from '@makerdao/ui-components-core';
 import useMaker from 'hooks/useMaker';
 
 const Navbar = ({ viewedAddress }) => {
-    const { account } = useMaker();
+  const { account } = useMaker();
 
-    return ( <
-        Box bg = { account ? 'blueGray' : 'white' }
-        height = "100%" >
-        <
-        Flex alignItems = "center"
-        justifyContent = "center"
-        py = "m" / >
-        <
-        Grid mx = "0px" >
-        <
-        SaveNav account = { account }
-        /> <
-        BorrowNav viewedAddress = { viewedAddress }
-        account = { account }
-        /> 
-        <
-        /Grid> <
-        /Box>
-    );
+  return (
+    <Box bg={account ? 'blueGray' : 'white'} height="100%">
+      <Flex alignItems="center" justifyContent="center" py="m" />
+      <Grid mx="0px">
+        <SaveNav account={account} />{' '}
+        <BorrowNav viewedAddress={viewedAddress} account={account} />
+      </Grid>{' '}
+    </Box>
+  );
 };
 
 export default Navbar;
