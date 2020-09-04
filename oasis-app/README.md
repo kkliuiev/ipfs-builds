@@ -1,4 +1,4 @@
-# Oasis Borrow/Save
+# This App Borrow/Save
 
 [![Build Status][build]][build-url]
 [![Coverage Status][cover]][cover-url]
@@ -19,7 +19,7 @@ Have installed:
 
 2. `cd mcd-cdp-portal && yarn`
 
-### Running Oasis
+### Running This App
 
 - `yarn start`
 - Go to http://localhost:3000

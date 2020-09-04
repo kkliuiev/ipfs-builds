@@ -248,7 +248,7 @@ const Footer = styled.footer`
   }
 `;
 
-// It has the Oasis logo, the top nav links, and the copyright notice.
+// It has the This App logo, the top nav links, and the copyright notice.
 // It also has a ThemeProvider
 const MarketingLayout = ({ showNavInFooter, children }) => {
   const { lang } = useLanguage();

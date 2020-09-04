@@ -31,133 +31,151 @@ import { Routes } from 'utils/constants';
 const { networkNames, defaultNetwork } = config;
 
 const dappProvidersView = async request => {
-  const {
-    network = networkNames[defaultNetwork],
-    testchainId,
-    backendEnv
-  } = request.query;
-  const { viewedAddress } = request.params;
+    const {
+        network = networkNames[defaultNetwork],
+            testchainId,
+            backendEnv
+    } = request.query;
+    const { viewedAddress } = request.params;
 
-  return (
-    <MakerProvider
-      network={network}
-      testchainId={testchainId}
-      backendEnv={backendEnv}
-      viewedAddress={viewedAddress}
-    >
-      <RouteEffects network={network} />
-      <TransactionManagerProvider>
-        <NotificationProvider>
-          <VaultsProvider viewedAddress={viewedAddress}>
-            <ToggleProvider>
-              <ModalProvider modals={modals} templates={templates}>
-                <SidebarProvider>
-                  <View />
-                </SidebarProvider>
-              </ModalProvider>
-            </ToggleProvider>
-          </VaultsProvider>
-        </NotificationProvider>
-      </TransactionManagerProvider>
-    </MakerProvider>
-  );
+    return ( <
+        MakerProvider network = { network }
+        testchainId = { testchainId }
+        backendEnv = { backendEnv }
+        viewedAddress = { viewedAddress } >
+        <
+        RouteEffects network = { network }
+        /> <
+        TransactionManagerProvider >
+        <
+        NotificationProvider >
+        <
+        VaultsProvider viewedAddress = { viewedAddress } >
+        <
+        ToggleProvider >
+        <
+        ModalProvider modals = { modals }
+        templates = { templates } >
+        <
+        SidebarProvider >
+        <
+        View / >
+        <
+        /SidebarProvider> < /
+        ModalProvider > <
+        /ToggleProvider> < /
+        VaultsProvider > <
+        /NotificationProvider> < /
+        TransactionManagerProvider > <
+        /MakerProvider>
+    );
 };
 
 const withDashboardLayout = childMatcher =>
-  compose(
-    withView(dappProvidersView),
-    withView(request => {
-      const { viewedAddress, cdpId } = request.params;
-      return (
-        <DashboardLayout
-          mobileNav={<MobileNav viewedAddress={viewedAddress} cdpId={cdpId} />}
-          navbar={<Navbar viewedAddress={viewedAddress} />}
-        >
-          <View />
-        </DashboardLayout>
-      );
-    }),
-    childMatcher
-  );
+    compose(
+        withView(dappProvidersView),
+        withView(request => {
+                const { viewedAddress, cdpId } = request.params;
+                return ( <
+                        DashboardLayout mobileNav = { < MobileNav viewedAddress = { viewedAddress }
+                            cdpId = { cdpId }
+                            />}
+                            navbar = { < Navbar viewedAddress = { viewedAddress }
+                                />} > <
+                                View / >
+                                <
+                                /DashboardLayout>
+                            );
+                        }),
+                    childMatcher
+            );
 
-const marketingLayoutView = () => (
-  <MarketingLayout showNavInFooter={true}>
-    <View />
-  </MarketingLayout>
-);
+            const marketingLayoutView = () => ( <
+                MarketingLayout showNavInFooter = { true } >
+                <
+                View / >
+                <
+                /MarketingLayout>
+            );
 
-export default mount({
-  '/': route(() => ({ title: 'Landing', view: <Landing /> })),
+            export default mount({
+                    '/': route(() => ({ title: 'Landing', view: < Landing / > })),
 
-  [`/${Routes.BORROW}`]: compose(
-    withView(dappProvidersView),
-    withView(marketingLayoutView),
-    route(() => ({ title: 'Borrow', view: <Borrow /> }))
-  ),
+                    [`/${Routes.BORROW}`]: compose(
+                        withView(dappProvidersView),
+                        withView(marketingLayoutView),
+                        route(() => ({ title: 'Borrow', view: < Borrow / > }))
+                    ),
 
-  [`/${Routes.BORROW}/owner/:viewedAddress`]: withDashboardLayout(
-    route(request => {
-      const { viewedAddress } = request.params;
-      return {
-        title: 'Overview',
-        view: <Overview viewedAddress={viewedAddress} />
-      };
-    })
-  ),
+                    [`/${Routes.BORROW}/owner/:viewedAddress`]: withDashboardLayout(
+                        route(request => {
+                            const { viewedAddress } = request.params;
+                            return {
+                                title: 'Overview',
+                                view: < Overview viewedAddress = { viewedAddress }
+                                />
+                            };
+                        })
+                    ),
 
-  [`/${Routes.BORROW}/:cdpId`]: withDashboardLayout(
-    map(request => {
-      const { cdpId } = request.params;
+                    [`/${Routes.BORROW}/:cdpId`]: withDashboardLayout(
+                            map(request => {
+                                    const { cdpId } = request.params;
 
-      if (!/^\d+$/.test(cdpId))
-        return route({ view: <div>invalid cdp id</div> });
+                                    if (!/^\d+$/.test(cdpId))
+                                        return route({
+                                                view: < div > invalid cdp id < /div> });
 
-      return route({ title: 'CDP', view: <CDPDisplay cdpId={cdpId} /> });
-    })
-  ),
+                                                    return route({
+                                                    title: 'CDP',
+                                                    view: < CDPDisplay cdpId = { cdpId }
+                                                    /> });
+                                                })
+                                            ),
 
-  [`/${Routes.BORROW}/btc`]: compose(
-    withView(dappProvidersView),
-    withView(marketingLayoutView),
-    route(() => ({ title: 'Borrow', view: <BorrowWBTCLanding /> }))
-  ),
+                                            [`/${Routes.BORROW}/btc`]: compose(
+                                                withView(dappProvidersView),
+                                                withView(marketingLayoutView),
+                                                route(() => ({ title: 'Borrow', view: < BorrowWBTCLanding / > }))
+                                            ),
 
-  [`/${Routes.SAVE}`]: compose(
-    withView(dappProvidersView),
-    withView(marketingLayoutView),
-    route(() => ({ title: 'Save', view: <SaveOverview /> }))
-  ),
+                                            [`/${Routes.SAVE}`]: compose(
+                                                withView(dappProvidersView),
+                                                withView(marketingLayoutView),
+                                                route(() => ({ title: 'Save', view: < SaveOverview / > }))
+                                            ),
 
-  [`/${Routes.SAVE}/owner/:viewedAddress`]: withDashboardLayout(
-    route(request => {
-      const { viewedAddress } = request.params;
-      return {
-        title: 'Save',
-        view: <Save viewedAddress={viewedAddress} />
-      };
-    })
-  ),
+                                            [`/${Routes.SAVE}/owner/:viewedAddress`]: withDashboardLayout(
+                                                route(request => {
+                                                    const { viewedAddress } = request.params;
+                                                    return {
+                                                        title: 'Save',
+                                                        view: < Save viewedAddress = { viewedAddress }
+                                                        />
+                                                    };
+                                                })
+                                            ),
 
-  [`/${Routes.TRADE}`]: compose(
-    withView(marketingLayoutView),
-    route(() => ({ title: 'Trade', view: <TradeLanding /> }))
-  ),
+                                            [`/${Routes.TRADE}`]: compose(
+                                                withView(marketingLayoutView),
+                                                route(() => ({ title: 'Trade', view: < TradeLanding / > }))
+                                            ),
 
-  [`/${Routes.PRIVACY}`]: route(() => ({
-    title: 'Oasis - Privacy Policy',
-    view: <Privacy />
-  })),
+                                            [`/${Routes.PRIVACY}`]: route(() => ({
+                                                title: 'This App - Privacy Policy',
+                                                view: < Privacy / >
+                                            })),
 
-  [`/${Routes.TERMS}`]: route(() => ({
-    title: 'Oasis - Terms of Service',
-    view: <Terms />
-  }))
-});
+                                            [`/${Routes.TERMS}`]: route(() => ({
+                                                title: 'This App - Terms of Service',
+                                                view: < Terms / >
+                                            }))
+                                        });
 
-function RouteEffects({ network }) {
-  useEffect(() => {
-    if (network !== 'mainnet' && window.location.hostname !== 'localhost')
-      userSnapInit();
-  }, [network]);
-  return null;
-}
+                                function RouteEffects({ network }) {
+                                    useEffect(() => {
+                                        if (network !== 'mainnet' && window.location.hostname !== 'localhost')
+                                            userSnapInit();
+                                    }, [network]);
+                                    return null;
+                                }

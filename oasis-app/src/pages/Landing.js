@@ -438,7 +438,7 @@ function Landing() {
 
   return (
     <MarketingLayout>
-      <SEO title="Oasis" />
+      <SEO title="This App" />
       <Content>
         <Box mt={{ s: '126px', m: '149px' }} px={{ s: '10px', m: 0 }}>
           <Text.h1>{lang.landing_page.headline}</Text.h1>
