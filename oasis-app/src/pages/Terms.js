@@ -17,8 +17,7 @@ const Privacy = () => (
       <p>
         This Agreement is between you(the“ <strong> User </strong>” and
         collectively with others using the Site, “ <strong> Users </strong>”)
-        and Maker Ecosystem Growth Holdings, Inc., a company organized under the
-        laws of Cayman Islands(“ <strong> Company </strong>” or “we,” “our” or“
+        and a company (“ <strong> Company </strong>” or “we,” “our” or“
         us” and together with you, the“ Parties”) concerning your use
         of(including any access to) Company’ s websites, currently located at
         This App.app, mobile applications, web applications, decentralized

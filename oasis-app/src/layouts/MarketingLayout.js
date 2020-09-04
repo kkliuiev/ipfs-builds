@@ -312,7 +312,7 @@ const MarketingLayout = ({ showNavInFooter, children }) => {
             </Nav>
           </div>
           <div className="copyright">
-            © {new Date().getFullYear()} Maker Ecosystem Growth Holdings, Inc.
+            © {new Date().getFullYear()}
           </div>
         </Footer>
       </MarketingLayoutStyle>
