@@ -17,17 +17,16 @@ const Privacy = () => (
       <p>
         This Agreement is between you(the“ <strong> User </strong>” and
         collectively with others using the Site, “ <strong> Users </strong>”)
-        and a company (“ <strong> Company </strong>” or “we,” “our” or“
-        us” and together with you, the“ Parties”) concerning your use
-        of(including any access to) Company’ s websites, currently located at
-        This App.app, mobile applications, web applications, decentralized
-        applications, smart contracts and API located at any of Company’ s
-        websites(together with any materials and services available therein, and
-        successor website(s) or application(s) thereto, the“{' '}
-        <strong> Site </strong>”). This Agreement hereby incorporates by this
-        reference any additional terms and conditions with respect to the Site
-        posted by Company to the Site, or otherwise made available to you by
-        Company.{' '}
+        and a company (“ <strong> Company </strong>” or “we,” “our” or“ us” and
+        together with you, the“ Parties”) concerning your use of(including any
+        access to) Company’ s websites, currently located at This App.app,
+        mobile applications, web applications, decentralized applications, smart
+        contracts and API located at any of Company’ s websites(together with
+        any materials and services available therein, and successor website(s)
+        or application(s) thereto, the“ <strong> Site </strong>”). This
+        Agreement hereby incorporates by this reference any additional terms and
+        conditions with respect to the Site posted by Company to the Site, or
+        otherwise made available to you by Company.{' '}
       </p>{' '}
       <p>
         By clicking or tapping any button or box marked“ accept” or“ agree”(or a
