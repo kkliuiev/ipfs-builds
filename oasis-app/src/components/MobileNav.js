@@ -98,11 +98,6 @@ const MobileNav = ({ viewedAddress }) => {
           borderRadius="4px"
           ml="xs"
         />
-        <TradeNav
-          borderRadius="4px"
-          width={`${getMeasurement('navbarWidth')}px`}
-          ml="xs"
-        />
       </Flex>
       <Flex alignItems="center" justifyContent="center">
         <SidebarDrawerTrigger

@@ -62,13 +62,6 @@ const MainNav = ({ onLinkClicked, ...props }) => {
   return (
     <MainNavStyle {...props}>
       <Link
-        href={`/${Routes.TRADE}`}
-        activeStyle={{ fontWeight: 'bold' }}
-        onClick={() => onLinkClicked && onLinkClicked()}
-      >
-        {lang.navbar.trade}
-      </Link>
-      <Link
         href={`/${Routes.BORROW}`}
         activeStyle={{ fontWeight: 'bold' }}
         onClick={() => onLinkClicked && onLinkClicked()}
@@ -320,7 +313,7 @@ const MarketingLayout = ({ showNavInFooter, children }) => {
             </Nav>
           </div>
           <div className="copyright">
-            © {new Date().getFullYear()} Maker Ecosystem Growth Holdings, Inc.
+            © {new Date().getFullYear()} 
           </div>
         </Footer>
       </MarketingLayoutStyle>

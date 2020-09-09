@@ -42,12 +42,13 @@ const Content = ({ children }) => (
 
 const Cards = (() => {
   const CardsContainer = styled(Box)`
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 65%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 48px;
 
     :after {
       content: ' ';
@@ -130,32 +131,6 @@ const Cards = (() => {
 
     return (
       <CardsContainer {...props}>
-        <Card
-          style={{
-            background:
-              'radial-gradient(111.67% 100% at 0% 0%, #F2FFE6 0%, #C6FFF9 100%)'
-          }}
-        >
-          <TradeIcon />
-          <h1 className="title">{lang.landing_page.trade_card.title}</h1>
-          <Text className="description">
-            {lang.landing_page.trade_card.description}
-          </Text>
-          <div className="buttonContainer">
-            <Link
-              href={`/${Routes.TRADE}`}
-              onClick={() => {
-                mixpanel.track('btn-click', {
-                  id: 'StartTrading',
-                  product: 'oasis-landing'
-                });
-              }}
-              className="button-link"
-            >
-              <FilledButton>{lang.landing_page.trade_card.button}</FilledButton>
-            </Link>
-          </div>
-        </Card>
         <Card
           style={{
             background:
