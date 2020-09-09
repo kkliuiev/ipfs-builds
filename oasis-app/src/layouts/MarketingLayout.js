@@ -312,9 +312,7 @@ const MarketingLayout = ({ showNavInFooter, children }) => {
               <Link href={`/${Routes.TERMS}`}>{lang.navbar.terms}</Link>
             </Nav>
           </div>
-          <div className="copyright">
-            © {new Date().getFullYear()} 
-          </div>
+          <div className="copyright">© {new Date().getFullYear()}</div>
         </Footer>
       </MarketingLayoutStyle>
     </ThemeProvider>

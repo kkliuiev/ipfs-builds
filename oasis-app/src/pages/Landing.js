@@ -42,13 +42,13 @@ const Content = ({ children }) => (
 
 const Cards = (() => {
   const CardsContainer = styled(Box)`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 65%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 65%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 48px;
 
     :after {
       content: ' ';
